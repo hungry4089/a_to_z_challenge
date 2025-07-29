@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A-Z 타이핑 챌린지</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🚀 A to Z 타이핑 챌린지</h1>
+    <p>최대한 빠르게 a부터 z까지 입력해보세요!</p>
+
+    <div class="timer" id="timer">0.00s</div>
+
+    <input 
+      type="text" 
+      id="typingInput" 
+      class="input-box" 
+      maxlength="26" 
+      autofocus 
+      placeholder="여기에 입력 시작"
+    />
+
+    <div id="warningMessage" class="warning-message" style="display: none;">
+      ⚠️ 한 번에 입력은 허용되지 않습니다. 순차적으로 입력해 주세요!
+    </div>
+
+    <div id="result" class="result" style="display: none;">
+      <h2>🎉 완료!</h2>
+      <p>걸린 시간: <span id="finalTime"></span>초</p>
+      <button class="btn" onclick="restart()">다시 도전</button>
+    </div>
+  </div>
+
+  <!-- 전체 랭킹 카드 (왼쪽) -->
+  <div class="records" id="leaderboardCard">
+    <h3>🌍 전체 랭킹</h3>
+    <div id="browserWarning" class="warning">
+      ⚠️ 현재 페이지에서는 로그인이 되지 않습니다.<br />
+      오른쪽 하단 메뉴에서 "다른 브라우저로 열기"를 사용해 주세요.
+    </div>
+    <div id="loginContainer">
+      <button id="googleSignInBtn" class="btn google-btn">Google 로그인</button>
+    </div>
+    <p id="myRankDisplay" class="my-rank"></p>
+    <ul id="leaderboardList" class="record-list"></ul>
+  </div>
+
+  <!-- 내 기록 카드 (오른쪽) -->
+  <div class="records">
+    <h3>📜 내 기록</h3>
+    <ul id="recordList" class="record-list"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

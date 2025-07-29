@@ -1,0 +1,10 @@
+{
+    "name": "a-z-challenge",
+    "version": "1.0.0",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "dependencies": {
+      "firebase": "^9.23.0"
+    }
+  }
